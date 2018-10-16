@@ -1,0 +1,18 @@
+version: '3'
+services:
+  nodejs-1:
+    image: jhnftz101118/nodejs_demo
+    ports:
+     - 8000:8000
+  nodejs-2:
+    image: jhnftz101118/nodejs_demo
+    command: --peer nodejs-1
+    ports:
+     - 8001:8000
+  haproxy:
+    image: jhnftz101118/haproxy_demo
+    command: --peer nodejs-2
+             --bind backend:nodejs_demo.default
+    ports:
+      - 80:80
+
