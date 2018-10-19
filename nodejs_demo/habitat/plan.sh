@@ -5,4 +5,3 @@ pkg_scaffolding="core/scaffolding-node"
 pkg_exports=(
   [port]=app.port
   )
-
